@@ -1,6 +1,13 @@
 use dioxus::prelude::*;
 
+#[cfg(not(target_family = "wasm"))]
 fn main() {
+    dioxus::launch(App);
+}
+
+#[cfg(target_family = "wasm")]
+fn main() {
+    console_error_panic_hook::set_once();
     dioxus::launch(App);
 }
 
