@@ -1,28 +1,11 @@
-[package]
-name = "ripbits"
+[workspace]
+members = [
+    "backend",
+    "frontend", 
+    "shared"
+]
+resolver = "2"
+
+[workspace.package]
 version = "0.1.0"
-edition = "2024"
-
-[dependencies]
-
-[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-dioxus = { version = "0.6", features = ["desktop"] }
-
-[target.'cfg(target_arch = "wasm32")'.dependencies]
-dioxus = { version = "0.6", features = ["web"] }
-
-[target.'cfg(target_family = "wasm")'.dependencies]
-wasm-bindgen = "0.2"
-console_error_panic_hook = "0.1"
-
-[profile]
-
-[profile.wasm-dev]
-inherits = "dev"
-opt-level = 1
-
-[profile.server-dev]
-inherits = "dev"
-
-[profile.android-dev]
-inherits = "dev"
+edition = "2021"
